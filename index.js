@@ -1,5 +1,25 @@
 import chalk from 'chalk';
+import fs from 'fs';
 
-console.log(chalk.blue('olá mundo'));
-console.log('São geralmente recuperados a partir de um objeto [FileList](https://developer.mozilla.org/pt-BR/docs/Web/API/FileList) que é retornado como resultado da seleção, pelo usuário, de arquivos através do elemento [<input>](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Input), a partir do objeto [DataTransfer](https://developer.mozilla.org/pt-BR/docs/Web/API/DataTransfer)');
-console.log('em um [HTMLCanvasElement](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLCanvasElement). Em Gecko, códigos com privilégiios podem criar objetos File representando qualquer arquivo local sem a intereção do usuário (veja [Implementation notes](https://developer.mozilla.org/pt-BR/docs/Web/API/File#implementation_notes) para mais informações.).');
+const trataErro = (erro) => {
+  throw new Error(chalk.red(erro.code, ' não arquivo no diretorio'));
+}
+
+// const pegaArquivo = (caminhoArquivo) => {
+//   const encode = 'utf-8';
+//   fs.promises.readFile(caminhoArquivo, encode).then(texto => console.log(texto)).catch(trataErro);
+// }
+
+const pegaArquivo = async (caminhoArquivo) => {
+  try {
+    const encode = 'utf-8';
+    const texto = await fs.promises.readFile(caminhoArquivo, encode);
+    console.log(texto);
+  } catch (error) {
+    trataErro(error)
+  } finally { // finally executa sempre no fim, independente!
+    console.log(chalk.bgMagenta('forget'));
+  }
+}
+
+pegaArquivo('./arquivos/texto.md');
