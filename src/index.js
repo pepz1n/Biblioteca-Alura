@@ -7,11 +7,11 @@ const extraiLinks = (texto) => {
   const capturas = [...texto.matchAll(regex)];
   let dados = capturas.map(captura => ({[captura[1]]: captura[2]}));
 
-  return dados;
+  return dados.length !== 0 ? dados : 'Não À links!';
 }
 
 const trataErro = (erro) => {
-  throw new Error(chalk.red(erro.code, ' não arquivo no diretorio'));
+  throw new Error(chalk.red(erro, ' não arquivo no diretorio'));
 }
 
 
@@ -19,7 +19,7 @@ const pegaArquivo = async (caminhoArquivo) => {
   try {
     const encode = 'utf-8';
     const texto = await fs.promises.readFile(caminhoArquivo, encode);
-    console.log(extraiLinks(texto))
+    return extraiLinks(texto)
   } catch (error) {
     trataErro(error)
   } finally { // finally executa sempre no fim, independente!
@@ -27,4 +27,4 @@ const pegaArquivo = async (caminhoArquivo) => {
   }
 }
 
-pegaArquivo('./arquivos/texto.md');
+export default pegaArquivo;
