@@ -1,8 +1,12 @@
 {
-  "name": "2708-node-lib-md",
+  "name": "node-check-links-ppz",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "node-check-links-ppz checa links de um arquivo .md com o padrao () [] e valida nome-da-lib ./caminho/do/arquivo.md",
+  "main": "./cli.js",
+  "preferGlobal": true,
+  "bin": {
+    "<node-check-links-ppz>": "./cli.js"
+  },
   "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,16 +15,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alura-cursos/2708-node-lib-md.git"
+    "url": "git+https://github.com/pepz1n/Biblioteca-Alura"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["MD", ".md", "markdown"],
+  "author": "Bernardo Cortina Zanetti <bebezanetti@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alura-cursos/2708-node-lib-md/issues"
+    "email": "bebezanetti@gmail.com",
+    "url": "https://github.com/pepz1n/Biblioteca-Alura/issues"
   },
-  "homepage": "https://github.com/alura-cursos/2708-node-lib-md#readme",
+  "homepage": "https://github.com/pepz1n/Biblioteca-Alura",
   "dependencies": {
-    "chalk": "5.0.1"
+    "chalk": "^5.0.1",
+    "node-fetch": "^2.6.1"
   }
 }

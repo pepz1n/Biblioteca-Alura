@@ -39,5 +39,6 @@ const processaTexto = async (caminho) => {
     });
   }
 }
-
 processaTexto(caminho)
+
+export default processaTexto
