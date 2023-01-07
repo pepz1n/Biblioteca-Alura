@@ -1,5 +1,3 @@
-import chalk from "chalk";
-
 const extraiLinks = (arrLinks) => {
   let itens = arrLinks.map((objetoLinks) => Object.values(objetoLinks).join());
   return itens;
@@ -38,9 +36,3 @@ const listaValidada = async (listaDeLinks) => {
 }
 
 export default listaValidada
-
-
-/*
-[Teste de retorno 400](https://httpstat.us/404).
-[gatinho salsicha](http://gatinhosalsicha.com.br/)
-*/ 
